@@ -1,0 +1,690 @@
+/* Global Styles */
+body .App{
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #f4f4f9;
+  background: #121212;
+}
+
+.App h1, h2, h3 {
+  font-weight: 700;
+  margin: 0;
+}
+
+.App a {
+  text-decoration: none;
+  color: #4caf50;
+}
+
+.App a:hover {
+  color: #76ff03;
+}
+
+/* Header */
+.App .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(18, 18, 18, 0.8); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect for modern browsers */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.App .header.scrolled {
+  background: rgba(18, 18, 18, 0.95); /* More opaque when scrolled */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.App .header .logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #4caf50;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.App .header .logo:hover {
+  color: #76ff03;
+}
+
+.App .nav a.active {
+  color: #4caf50;
+}
+
+.App .nav a.active::after {
+  width: 100%;
+}
+
+.App .nav {
+  display: flex;
+  align-items: center;
+}
+
+
+.App .header a {
+  color: #f4f4f9;
+  margin: 0 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.App .header a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #4caf50;
+  transition: width 0.3s ease;
+}
+
+.App .header a:hover {
+  color: #4caf50;
+}
+
+.App .header a:hover:not(#portfolio)::after {
+  width: 100%;
+}
+
+.App .header .contact-button {
+  background: #4caf50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.App .header .contact-button:hover {
+  background: #76ff03;
+  color: #121212;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+
+/* Hero Section */
+/* Hero Section Styles */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; /* Place la vidéo derrière le contenu */
+  filter: brightness(50%); /* Assombrit la vidéo pour plus de contraste avec le texte */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* Place le texte et les boutons au-dessus de la vidéo */
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  animation: fadeIn 2s ease-in-out, moveDown 2s ease-in-out;
+}
+
+.hero-content p {
+  font-size: 1.5rem; /* Augmentation de la taille du texte */
+  margin-bottom: 2rem;
+  line-height: 1.8; /* Meilleure lisibilité */
+  animation: fadeIn 3s ease-in-out;
+}
+
+.App .hero-button {
+  padding: 0.8rem 1.5rem;
+  background: #4caf50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.App .hero-button:hover {
+   background: #76ff03;
+   color: #ffffff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveDown {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.dynamic-text {
+  font-size: 4.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #00ff33, #3bda1b);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+  border-right: 4px solid white; /* Curseur clignotant */
+  overflow: hidden;
+  white-space: nowrap;
+  width: fit-content; /* Ajuste la largeur du conteneur */
+  display: inline-block; /* Empêche l'expansion automatique */
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+@keyframes zoomText {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+
+
+
+/* About Section */
+.about {
+  padding: 5rem 2rem;
+  background: #0f1115;
+  color: #f4f4f9;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #4caf50;
+  
+  text-align: center;
+}
+
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap; /* Responsive sur petits écrans */
+  gap: 2rem;
+}
+
+.about-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.about-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #d1d1d1;
+}
+
+.about-button {
+  margin-top: 20px;
+  padding: 0.8rem 1.5rem;
+  background: #4caf50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.about-button:hover {
+   background: #76ff03;
+   color: #ffffff;
+}
+
+
+.skill-card {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.skill-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.skill-card.flipped .skill-card-inner {
+  transform: rotateY(180deg);
+}
+
+.skill-card-front, .skill-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skill-card-back {
+  transform: rotateY(180deg);
+}
+
+.skill-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.skill-card p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.skill-card-back p {
+  color: #333;
+}
+.skills-grid-container {
+  background-color: black;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* .skills-heading {
+  margin-top: 50px;
+  color: #4caf50;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+} */
+
+.skills-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+.skill-card-back h4{
+  color: #4a4f4b;
+}
+
+.skill-card-back ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+.skill-card-back li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+
+/* Projects Section */
+.App .projects {
+  padding: 5rem 2rem;
+  background: #1e1e1e;
+  text-align: center;
+  color: #f4f4f9;
+}
+
+.App .projects h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #4caf50;
+}
+
+.App .skills-grid-container h2{
+  margin-top: 50px;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #4caf50;
+  text-align: center;
+}
+
+.App .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.App .project-card {
+  background: #121212;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.App .project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.App .project-card img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.App .project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.App .project-card p {
+  font-size: 1rem;
+  color: #bdbdbd;
+  margin-bottom: 1rem;
+}
+
+.App .project-link {
+  padding: 0.8rem 1.5rem;
+  background: #4caf50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.App .project-link:hover {
+  background: #76ff03;
+}
+
+/* Footer */
+.App .footer {
+  padding: 2rem;
+  background: #121212;
+  text-align: center;
+  color: #bdbdbd;
+  font-size: 1rem;
+}
+
+.App .footer p {
+  margin: 0;
+}
+
+.App .footer a {
+  color: #4caf50;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.App .footer a:hover {
+  color: #76ff03;
+}
+
+.App .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.App .project-card {
+  background: #121212;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.App .project-card:hover {
+  transform: translateY(-5px);
+}
+
+.App .project-image-container {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.App .project-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.App .project-card:hover .project-thumbnail {
+  transform: scale(1.05);
+}
+
+.App .project-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.App .project-info h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.App .project-info p {
+  color: #888;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.modal-body {
+  padding: 2rem;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.gallery-image {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.02);
+}
+
+.preview-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.preview-image {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.project-description {
+  color: #ccc;
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+.project-description {
+  color: #ccc;
+  line-height: 1.6;
+  margin: 1rem 0;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.project-description p {
+  margin-bottom: 1rem;
+}
+
+.App .preview-button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.App .preview-button:hover {
+  background: #76ff03;
+  color: white;
+}
+
+.App .preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.App .preview-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 2001;
+}
+
+.App .preview-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
