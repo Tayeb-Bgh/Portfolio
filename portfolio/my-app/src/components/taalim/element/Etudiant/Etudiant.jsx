@@ -428,6 +428,7 @@ const Etudiant = () => {
     },
   ];
 
+  const [usersData, ] = useState(initialUsersData);
   const [users, setUsers] = useState(initialUsersData);
   const [searchType, setSearchType] = useState("prenom");
   const [showModalAddUser, setShowModalAddUser] = useState(false);
