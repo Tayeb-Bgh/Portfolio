@@ -1049,7 +1049,7 @@ export default function SeanceTab() {
                   <option value={0}>Séance pour chaque semaine</option>
                   <option value={1}>Séance pour cette semaine seulement</option>
                 </select>
-                {newSeance.typeSeance == 0 && (
+                {newSeance.typeSeance === 0 && (
                   <input
                     type="date"
                     id="end-date"
