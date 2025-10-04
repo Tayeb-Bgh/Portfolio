@@ -117,13 +117,13 @@ const Groupe = () => {
     },
   ];
 
-  const [groupes, setGroupes] = useState(initialGroupes);
+  const [groupes] = useState(initialGroupes);
   const [filter, setFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [showModalAddGroupe, setShowModalAddGroupe] = useState(false);
   const [currentGroupe, setCurrentGroupe] = useState(null);
   const [showModalModifyGroupe, setShowModalModifyGroupe] = useState(false);
-  const [studentsWithoutGroup, setStudentsWithoutGroup] = useState([
+  const [studentsWithoutGroup] = useState([
     { idEleve: 40, nomComplet: 'Nouveau Étudiant 1' },
     { idEleve: 41, nomComplet: 'Nouveau Étudiant 2' },
     { idEleve: 42, nomComplet: 'Nouveau Étudiant 3' },

@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Sidebar from './element/sidebar/Sidebar.jsx'
 import Dashboard from './element/Dashboard/Dashboard.jsx';
 import Etudiant from './element/Etudiant/Etudiant.jsx';

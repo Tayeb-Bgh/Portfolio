@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState, useMemo } from "react";
 
 function Hero() {
   const [displayText, setDisplayText] = useState("");
   const [isErasing, setIsErasing] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
 
-  const texts = ["Tayeb BOUGUERMOUH"];
+  const texts = useMemo(() => ["Tayeb BOUGUERMOUH"], []);
   const typeSpeed = 100; // Vitesse de frappe
   const eraseSpeed = 50; // Vitesse d'effacement
   const delay = 2000; // Temps d'arrêt avant d'effacer

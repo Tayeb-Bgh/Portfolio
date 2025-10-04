@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Users, Calendar, School, ChartPie } from 'lucide-react';
 import {
   BarChart, Bar, XAxis, YAxis, ResponsiveContainer,
@@ -6,7 +6,6 @@ import {
 } from 'recharts';
 import StatCard from '../Utils/StatCard';
 import styles from './Dashboard.module.css';
-import { getDate } from 'date-fns';
 
 
 // Simuler les données du dashboard

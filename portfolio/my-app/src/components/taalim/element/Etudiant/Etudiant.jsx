@@ -428,14 +428,12 @@ const Etudiant = () => {
     },
   ];
 
-  const [usersData, setUsersData] = useState(initialUsersData);
   const [users, setUsers] = useState(initialUsersData);
   const [searchType, setSearchType] = useState("prenom");
   const [showModalAddUser, setShowModalAddUser] = useState(false);
   const [showModalModifyUser, setShowModalModifyUser] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [userToDelete, setUserToDelete] = useState(null);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 

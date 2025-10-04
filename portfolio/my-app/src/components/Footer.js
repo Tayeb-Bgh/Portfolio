@@ -4,7 +4,7 @@ import React from "react";
 function Footer() {
   return (
     <footer className="footer">
-      <p>&copy; 2024 Tayeb Bouguermouh. All rights reserved.</p>
+      <p>&copy; 2025 Tayeb Bouguermouh. All rights reserved.</p>
     </footer>
   );
 }

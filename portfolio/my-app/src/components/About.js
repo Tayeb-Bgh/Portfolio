@@ -9,7 +9,7 @@ function About() {
         <div className="about-text">
           <h3>Introduction:</h3>
           <p>
-            I am a 20-year-old Computer Science student at the University of Béjaïa, passionate about solving problems through technology.
+            I am a 21-year-old Computer Science student at the University of Clermont Auvergne, passionate about solving problems through technology.
 I am driven by a desire to continuously improve my skills and aspire to become a Software Architect. My focus is on designing efficient, reliable systems that meet user needs while embracing challenges and innovation.
 
           </p>
