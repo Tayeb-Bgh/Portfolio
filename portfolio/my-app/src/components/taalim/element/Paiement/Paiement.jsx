@@ -36,7 +36,7 @@ const Paiement = () => {
     fetch('http://localhost:5000/paiement/dashboard-stats')
       .then(res => res.json())
       .then(data => {
-        console.log("donnes :"+JSON.stringify(data));
+        console.log("donnes :" + JSON.stringify(data));
         setDashboardStats(data)
       })
       .catch(err => console.error('Error fetching dashboard stats:', err));
@@ -47,8 +47,8 @@ const Paiement = () => {
     fetch('http://localhost:5000/paiement/students')
       .then(res => res.json())
       .then(data => {
-        setStudents(s => data);
-        setGroups(g => [...new Set(students.map(student => student.groupName))]);
+        setStudents(data);
+        setGroups([...new Set(data.map(student => student.groupName))]);
       })
       .catch(err => console.error('Error fetching students:', err));
   }, []);
@@ -109,7 +109,7 @@ const Paiement = () => {
     );
   };
 
- 
+
   const handlePayment = async () => {
     if (!selectedStudent || selectedSessions.length === 0) return;
 
@@ -156,7 +156,7 @@ const Paiement = () => {
   );
 
   const totalUpcomingAmount = filteredStudents.reduce((sum, student) => sum + student.amountDue, 0);
- /*  const unpaidStudentsCount = students.filter(student => student.unpaidSessions >= 3).length; */
+  /*  const unpaidStudentsCount = students.filter(student => student.unpaidSessions >= 3).length; */
 
 
   return (
@@ -342,7 +342,7 @@ const Paiement = () => {
                 <th>Mois</th>
                 <th>Revenus Totaux</th>
                 <th>Séances Faites</th>
-                
+
               </tr>
             </thead>
             <tbody>
@@ -353,7 +353,7 @@ const Paiement = () => {
                     <td>{month}</td>
                     <td>{monthData.total || 0} DA</td>
                     <td>{monthData.sessions || 0}</td>
-                    
+
                   </tr>
                 );
               })}
@@ -374,14 +374,14 @@ const Paiement = () => {
       {isPaymentModalOpen && selectedStudent && (
         <div className={styles.modal}>
           <div className={styles.modalContent}>
-            <h2 style={{textAlign:'center'}}>Paiement pour {selectedStudent.name}</h2>
+            <h2 style={{ textAlign: 'center' }}>Paiement pour {selectedStudent.name}</h2>
             <h3>Date du Paiement</h3>
             <input
-                    type="date"
-                    id="end-date"
-                    value={datePayment}
-                    onChange={(e) => setDatePayment(e.target.value)}
-                  />
+              type="date"
+              id="end-date"
+              value={datePayment}
+              onChange={(e) => setDatePayment(e.target.value)}
+            />
             <h3>Séances non payées</h3>
             <div className={styles.sessionList}>
               {unpaidSessions.map((session) => (

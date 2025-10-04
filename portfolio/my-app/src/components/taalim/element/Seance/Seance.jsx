@@ -375,7 +375,6 @@ export default function SeanceTab() {
   const [activeTab, setActiveTab] = useState('emploi-du-temps')
   const [isAddingSeance, setIsAddingSeance] = useState(false)
   const [currentWeek, setCurrentWeek] = useState({ begin: new Date('0000-00-00'), end: new Date('0000-00-00') })
-  const [reRenderData, setReRenderData] = useState(false);
   const [searchDate, setSearchDate] = useState();
   const [searchGroup, setSearchGroup] = useState();
   const [filteredHistorique, setFilteredHistorique] = useState([]);
@@ -439,10 +438,7 @@ export default function SeanceTab() {
 
   }, []);
 
-  function toFormatSql(date) {
-    return `${date.getFullYear()}-${(date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)}-${date.getDate() < 10 ? '0' + date.getDate() : date.getDate()}`
-  }
-
+ 
   // Pour recuperer les seances de la semaine actuel
   useEffect(() => {
     setSeances(mockSeances);
