@@ -1,3 +1,22 @@
-You can access my portfolio via this link: https://portfolio-tayeb-bouguermouh.netlify.app
+# Portfolio — tayebbgh.fr
 
-This portfolio showcases all the projects I have completed since my introduction to programming. Inside, you will find an overview and description of each project I’ve worked on.
+My personal developer portfolio built with React. Showcases my projects, skills, and background with a bilingual FR/EN interface.
+
+🌐 **Live:** [tayebbgh.fr](https://tayebbgh.fr)
+
+---
+
+## Tech Stack
+
+| | |
+|---|---|
+| Framework | React |
+| Routing | React Router |
+| Styling | CSS (custom, no UI library) |
+| Deployment | Netlify |
+
+---
+
+## Deployment
+
+The site deploys automatically to Netlify on every push to `main`.
