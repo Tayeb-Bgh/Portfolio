@@ -1,4 +1,4 @@
-# Portfolio : tayebbgh.fr
+# Portfolio 
 
 My personal developer portfolio built with React. Showcases my projects, skills, and background with a bilingual FR/EN interface.
 
