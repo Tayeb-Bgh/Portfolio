@@ -32,7 +32,7 @@ const skillsData = {
       color: "#ffb432",
       colorBg: "rgba(255,180,50,0.07)",
       colorBorder: "rgba(255,180,50,0.18)",
-      skills: ["Git", "Docker", "Docker Compose", "Nginx", "Linux (Debian)", "SSH", "UFW", "Postman", "Unity", "ANTLR4", "Cisco Packet Tracer", "Processing"],
+      skills: ["Git", "Postman", "Unity", "ANTLR4", "Cisco Packet Tracer", "Processing"],
     },
     {
       category: "Cloud & Déploiement",
@@ -82,7 +82,7 @@ const skillsData = {
       color: "#ffb432",
       colorBg: "rgba(255,180,50,0.07)",
       colorBorder: "rgba(255,180,50,0.18)",
-      skills: ["Git", "Docker", "Docker Compose", "Nginx", "Linux (Debian)", "SSH", "UFW", "Postman", "Unity", "ANTLR4", "Cisco Packet Tracer", "Processing"],
+      skills: ["Git", "Postman", "Unity", "ANTLR4", "Cisco Packet Tracer", "Processing"],
     },
     {
       category: "Cloud & Deployment",

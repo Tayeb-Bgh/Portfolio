@@ -26,8 +26,8 @@ function About() {
       school: "Université Abderrahmane-Mira",
       location: "Béjaia, Algérie",
       description: lang === "fr"
-        ? "Diplôme obtenu. Parcours complet en 3 ans couvrant les fondamentaux, la programmation orientée objet et la spécialisation en systèmes informatiques."
-        : "Degree obtained. Full 3-year programme covering fundamentals, object-oriented programming, and a specialisation in computer systems.",
+        ? "Diplôme obtenu."
+        : "Degree obtained.",
       ranking: 4,
       totalStudents: 229,
       rankNote: lang === "fr"
@@ -60,11 +60,8 @@ function About() {
               key={index}
               className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
             >
-              <div className="timeline-marker">
-                <div className="timeline-dot">
-                  <span className="timeline-icon">{item.icon}</span>
-                </div>
-              </div>
+              
+              
               <div className="timeline-content">
                 <div className="timeline-year">{item.year}</div>
                 <h3 className="timeline-title">{item.title}</h3>

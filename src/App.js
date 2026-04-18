@@ -14,58 +14,61 @@ function MainLayoutContent() {
   const [activeSection, setActiveSection] = useState("");
   const location = useLocation();
 
+  const getHeaderOffset = () => {
+    const header = document.querySelector(".header");
+    return (header?.offsetHeight || 88) + 8;
+  };
+
   useEffect(() => {
     const sectionIds = ["hero", "about", "projects", "skills"];
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px",
-      threshold: Array.from({ length: 101 }, (_, i) => i / 100),
-    };
+    let rafId = null;
 
-    let observer;
+    const updateActiveSection = () => {
+      const headerOffset = getHeaderOffset();
+      // Use a reference line just under the fixed header to avoid activating
+      // the next section too early while the hero is still on screen.
+      const referenceY = headerOffset + 2;
+      let current = sectionIds[0];
 
-    const handleIntersect = (entries) => {
-      let maxVisibleSection = null;
-      let maxIntersectionRatio = 0;
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.intersectionRatio > maxIntersectionRatio) {
-          maxVisibleSection = entry.target.id;
-          maxIntersectionRatio = entry.intersectionRatio;
-        }
-      });
-      if (maxVisibleSection) setActiveSection(maxVisibleSection);
-    };
-
-    const onDomReady = () => {
-      observer = new IntersectionObserver(handleIntersect, observerOptions);
       sectionIds.forEach((id) => {
         const element = document.getElementById(id);
-        if (element) observer.observe(element);
-        else console.warn(`Element with id ${id} not found`);
+        if (!element) return;
+
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= referenceY) current = id;
       });
+
+      setActiveSection((prev) => (prev === current ? prev : current));
     };
 
-    if (document.readyState === "complete" || document.readyState === "interactive") {
-      onDomReady();
-    } else {
-      window.addEventListener("DOMContentLoaded", onDomReady);
-    }
+    const onScrollOrResize = () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
 
     return () => {
-      if (observer) observer.disconnect();
-      window.removeEventListener("DOMContentLoaded", onDomReady);
+      if (rafId) cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
     };
   }, []);
 
   useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace("#", "");
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        setActiveSection(id);
-      }
-    }
+    const id = location.hash.replace("#", "");
+    if (!id) return;
+
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    const headerOffset = getHeaderOffset();
+    const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+    window.scrollTo({ top, behavior: "smooth" });
+    setActiveSection(id);
   }, [location.hash]);
 
   return (

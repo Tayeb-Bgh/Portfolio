@@ -9,7 +9,8 @@ const translations = {
     hero: {
       subtitle:
         "Étudiant en informatique\nJe conçois et déploie des applications full-stack\ndu code à l'infrastructure.",
-        cta: "Découvrir mon parcours →",
+      location: "📍 Actuellement à Clermont-Ferrand, France",
+      cta: "Voir mes projets →",
     },
 
     about: {
@@ -197,7 +198,8 @@ const translations = {
     hero: {
       subtitle:
         "Computer Science undergraduate student\nPassionate about software design and development\nwith a focus on creating efficient and reliable solutions.",
-      cta: "Discover my journey →",
+      location: "📍 Currently in Clermont-Ferrand, France",
+      cta: "View my projects →",
     },
 
     about: {
